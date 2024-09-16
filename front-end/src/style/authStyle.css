@@ -1,0 +1,62 @@
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 80vh;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 48%, rgba(255,255,255,1) 57%);
+    /* color: #fff; */
+  
+}
+.main-form{
+  background-color: #453a3a;
+    width: 350px;
+    height: auto;
+    padding: 30px;
+    border-radius: 3px;
+  
+}
+.form-control:disabled{
+    background-color: #e9ecef00;
+    opacity: 1;
+}
+.main-form h1{
+    color: #fff;
+    margin-bottom: 25px;
+    text-align: center;
+}
+.main-form form input{
+    border: none;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    border-radius:0px;
+    background: transparent;
+    color: #fff;
+}
+.main-form form input::placeholder{
+    color: #fff;
+}
+.main-form form :focus{
+     background: transparent;
+    color: #000;
+   
+}
+.main-form form button{
+    background: #838181;
+    border: none;
+    border-radius: 0;
+    padding: 5px 20px;
+    text-align: center;
+}
+.main-form form button:hover{
+    background: #000;
+    cursor: pointer;
+    border-radius: 14px;  
+}
+
+/* forget password  */
+.forget{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
