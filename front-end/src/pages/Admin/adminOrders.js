@@ -11,6 +11,7 @@ const { Option } = Select;
 
 const AdminOrders = () => {
   const [status, setStatus] = useState(["not processing", "processing", "shipping", "deliverd", "cancel"]);
+  const [orderAvaliable, setOrderAvaliable] = useState(false)
   const [changestatus, setChangeStatus] = useState("");
   const [orders, setOrder] = useState([]);
   const [auth, setAuth] = useAuth();
@@ -27,6 +28,9 @@ const AdminOrders = () => {
   const handleChange = async (orderId, value) => {
     try {
       const { data } = await axios.put(`https://backend-n7jv.onrender.com/api/v1/auth/order-status/${orderId}`, { Status: value })
+      if (data.length > 0) {
+        setOrderAvaliable(true)
+      }
       getOrders();
     } catch (error) {
       console.log(error)
@@ -45,7 +49,7 @@ const AdminOrders = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h1>All orders</h1>
+            <h1 className="text-center">{orderAvaliable ? 'All orders' : 'No order is Avaliable'}</h1>
             {orders?.map((o, i) => {
               return (
                 <div className="shadow border">

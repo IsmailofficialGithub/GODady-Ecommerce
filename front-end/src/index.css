@@ -1,113 +1,113 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:ital,wght@0,400;1,300&display=swap');*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:ital,wght@0,400;1,300&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 /* font-family: "Playfair Display", serif; */
 /* font-family: poppins, serif; */
 
-.navbar{
-font-family: poppins, serif;
-font-size:17px;
-line-height: 26px;
-text-transform: uppercase;
-box-shadow:0px 8px 6px -6px gray;
---webkit-box-shadow:0px 8px 6px -6px gray;
-border-bottom:solid rgb(142, 123, 123) !important;
-
-}  
-  
-.nav-link{
-    font-weight: 300;
+.navbar {
+  font-family: poppins, serif;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0px 8px 6px -6px gray;
+  --webkit-box-shadow: 0px 8px 6px -6px gray;
+  border-bottom: solid rgb(142, 123, 123) !important;
 }
-.active{
-    border-bottom: 2px solid black;
+
+.nav-link {
+  font-weight: 300;
+}
+.active {
+  border-bottom: 2px solid black;
 }
 
 /* __________++++++++++____Footer  _______________++++++++________ */
-.footer{
-/* background: rgb(8,16,89); */
-color: white;
-padding: 30px;
+.footer {
+  /* background: rgb(8,16,89); */
+  color: white;
+  padding: 30px;
 
-background: radial-gradient(circle, rgba(8,16,89,1) 0%, rgba(0,0,0,1) 72%);
+  background: radial-gradient(circle, rgba(8, 16, 89, 1) 0%, rgba(0, 0, 0, 1) 72%);
 }
 
-.footer a{
-    text-decoration: none;
-    color: rgb(147, 128, 128) ;
-    padding: 10px;
+.footer a {
+  text-decoration: none;
+  color: rgb(147, 128, 128);
+  padding: 10px;
 }
-.footer a:hover{
-    color:white;
-    border-bottom: 2px solid white;
+.footer a:hover {
+  color: white;
+  border-bottom: 2px solid white;
 }
-.footer a span{
-    color:rgb(44, 244, 255);
+.footer a span {
+  color: rgb(44, 244, 255);
 }
 
 /* =================Contact ============== */
-.contact-data ul li{
-    text-decoration: none;
-    list-style:none;
-   font-family: poppins,sans-serif;
-   font-size:20px;
-   margin-top: 30px;
-   text-align: right;
+.contact-data ul li {
+  text-decoration: none;
+  list-style: none;
+  font-family: poppins, sans-serif;
+  font-size: 20px;
+  margin-top: 30px;
+  text-align: right;
 }
 
 /* ============pageNotFound=============== */
-.pnf{
-    display:flex;
-    align-items: center;
-    font-family: poppins,sans-serif;
-    justify-content: center;
-    flex-direction: column;
-    margin-top:30px
-   
-  
+.pnf {
+  display: flex;
+  align-items: center;
+  font-family: poppins, sans-serif;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30px;
 }
-.pnf h1{
-    font-family: "Playfair Display", serif;
-    font-size: 125px;
+.pnf h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 125px;
 }
-.pnf p{
-    font-weight: 700;
-    text-transform: uppercase;
+.pnf p {
+  font-weight: 700;
+  text-transform: uppercase;
 }
-.pnf span{
-    width: 500px;
-    text-align: center;
-    text-transform:capitalize;
+.pnf span {
+  width: 500px;
+  text-align: center;
+  text-transform: capitalize;
 }
-.pnf a{
-    text-decoration: none;
-    border:2px solid black;
-    padding: 5px 30px;
-    margin-top: 20px;
-    color: #000;
-    transition: 0.3s;
+.pnf a {
+  text-decoration: none;
+  border: 2px solid black;
+  padding: 5px 30px;
+  margin-top: 20px;
+  color: #000;
+  transition: 0.3s;
 }
-.pnf a:hover{
-background: #000;
-color: #fff;
-
+.pnf a:hover {
+  background: #000;
+  color: #fff;
 }
-.product-link{
-    text-decoration: none !important; 
+.product-link {
+  text-decoration: none !important;
 }
-.d-flex2{
-    display: flex;
-    flex-wrap: wrap;
-   
+.d-flex2 {
+  display: flex;
+  flex-wrap: wrap;
 }
-.d-flex2 img{
-    width: 287px;
-    height: 200px!important;
-    object-fit: cover;
+.d-flex2 img {
+  width: 287px;
+  height: 200px !important;
+  object-fit: cover;
 }
-.img-product-detail{
-    height: 400px;
-    object-fit: cover;
+.img-product-detail {
+  height: 400px;
+  object-fit: cover;
+}
+@media only screen and (max-width: 600px) {
+  .card-mobile {
+    width: 100% !important;
+  }
 }

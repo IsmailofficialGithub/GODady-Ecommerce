@@ -10,6 +10,7 @@ import { useCart } from "../context/cart";
 const Homepage = () => {
   const [products, setProduct] = useState([]);
   const [catagory, setCatagory] = useState([]);
+  const [Catagorylength, setCatagorylength] = useState(false)
   const [checked, setChecked] = useState([]);
   const [radio, setRadio] = useState([]);
   const [total, setTotal] = useState(0);
@@ -24,7 +25,12 @@ const Homepage = () => {
       const { data } = await axios.get(
         `https://backend-n7jv.onrender.com/api/v1/catagory/get-catagory`
       );
-
+      console.log(data.catagory.length)
+      if (data.catagory.length > 0) {
+        setCatagorylength(true)
+      } else {
+        setCatagorylength(false)
+      }
       if (data.success) {
         setCatagory(data?.catagory);
       }
@@ -135,52 +141,59 @@ const Homepage = () => {
       <div className="row mt-3">
         <div className="col-md-3 ">
           {/* filter by catagory */}
-          <div>
-            <h4 className="text-center">Filter by Catagory</h4>
-            {catagory?.map((c) => (
-              <Checkbox
-                key={c._id}
-                onChange={(e) => {
-                  handleFilter(e.target.checked, c._id);
-                }}
-              >
-                {c.name}
-              </Checkbox>
-            ))}
-          </div>
+          {
+            Catagorylength ?
+              <div>
+                <h4 className="text-center">Filter by Catagory</h4>
+                {catagory?.map((c) => (
+                  <Checkbox
+                    key={c._id}
+                    onChange={(e) => {
+                      handleFilter(e.target.checked, c._id);
+                    }}
+                  >
+                    {c.name}
+                  </Checkbox>
+                ))}
+              </div> :
+              ''
+          }
 
           {/* filter by Prices */}
           <div>
             <h4 className="text-center">Filter by Prices</h4>
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
-                <div key={p._id}>
-                  <Radio value={p.array}>{p.name}</Radio>
-                </div>
-              ))}
+            <Radio.Group onChange={(e) => setRadio(e.target.value)} >
+              <div className="mobile-flex">
+                {Prices?.map((p) => (
+                  <div key={p._id} >
+                    <Radio value={p.array}>{p.name}</Radio>
+                  </div>
+                ))}
+              </div>
             </Radio.Group>
           </div>
           <div className="d-flex flex-column mt-4 ml-2">
-            <button
-              className="btn btn-danger"
+            <span
+              className="button text-center"
               onClick={() => {
                 window.location.reload();
               }}
             >
               Reset Filter{" "}
-            </button>
+            </span>
           </div>
         </div>
 
         <div className="col-md-9">
+          <hr />
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap d-flex2">
             {products?.map((p) => (
-              <div className="card m-1" style={{ width: "18rem" }}>
+              <div className="card m-1 card-mobile" style={{ width: "18rem" }}>
                 <div>
                   <img
                     src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top "
+                    className="card-img-top w-100"
                     alt={p.name}
                   />
                   <div className="card-body">

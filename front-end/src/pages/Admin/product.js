@@ -28,15 +28,15 @@ const Products = () => {
                          <AdminMenu />
                     </div>
                     <div className='col-md-9'>
-                         <h1>Product List </h1>
+                         <h1 className='text-center'>Product List </h1>
 
                          <div className='d-flex d-flex2 '>
                               {products.map((p) => (
-                                   <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} className='product-link'>
-                                        <div className="card m-1" style={{ width: '18rem' }}>
+                                   <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} className='product-link '>
+                                        <div className="card m-1 card-mobile" style={{ width: '18rem' }}>
                                              <div>
-                                                  <img src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`} className="card-img-top " alt={p.name} />
-                                                  <div className="card-body">
+                                                  <img src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`} className="card-img-top  w-100" alt={p.name} />
+                                                  <div className="card-body ">
                                                        <h3 className="card-title">{p.name}</h3>
                                                        <h5 className="card-title">{`${p.price} $`}</h5>
                                                        <p className="card-text">{p.description}</p>
