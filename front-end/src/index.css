@@ -106,8 +106,20 @@
   height: 400px;
   object-fit: cover;
 }
+.button {
+  background: rgb(244, 80, 80);
+  padding: 4px 6px;
+  width: 100px;
+  display: flex;
+  align-self: center;
+  border-radius: 10px;
+}
 @media only screen and (max-width: 600px) {
   .card-mobile {
     width: 100% !important;
+  }
+  .mobile-flex {
+    display: flex !important;
+    flex-direction: row !important;
   }
 }
