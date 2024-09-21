@@ -25,7 +25,7 @@ const CreateProduct = () => {
   const getAllCatagory = async (req, res) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/catagory/get-catagory`
+        `https://backend-n7jv.onrender.com/api/v1/catagory/get-catagory`
       );
       if (data?.success) {
         await setCatagory(data?.catagory);
@@ -54,13 +54,13 @@ const CreateProduct = () => {
       productData.append("catagory", singleCatagory)
       productData.append("photos", photos)
 
-      const { data } = await axios.post('http://localhost:4500/api/v1/product/create-product', productData)
+      const { data } = await axios.post('https://backend-n7jv.onrender.com/api/v1/product/create-product', productData)
       if (data?.success) {
-         navigate('/dashboard/admin/products')
-         setTimeout(()=>{
+        navigate('/dashboard/admin/products')
+        setTimeout(() => {
           toast.success('Data added SuccessFully')
-         },100)
-     
+        }, 100)
+
       } else {
         toast.error('someThing wents wrong')
       }

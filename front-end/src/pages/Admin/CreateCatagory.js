@@ -16,13 +16,13 @@ const CreateCatagory = () => {
   const [selected, setSelected] = useState(null)
   const [updateName, setUpdateName] = useState('')
   // handle form
-const handleSubmit = async (e,) => {
+  const handleSubmit = async (e,) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:4500/api/v1/catagory/create-catagory', { name })
+      const { data } = await axios.post('https://backend-n7jv.onrender.com/api/v1/catagory/create-catagory', { name })
       if (data?.success) {
         toast.success(`${data.message} named ${name}`)
-        
+
         getAllCatagory()
       } else {
         toast.error(data.message)
@@ -39,7 +39,7 @@ const handleSubmit = async (e,) => {
   const getAllCatagory = async (req, res) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/catagory/get-catagory`
+        `https://backend-n7jv.onrender.com/api/v1/catagory/get-catagory`
       );
 
       if (data.success) {
@@ -61,7 +61,7 @@ const handleSubmit = async (e,) => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`http://localhost:4500/api/v1/catagory/update-catagory/${selected._id} `, { name: updateName })
+      const { data } = await axios.put(`https://backend-n7jv.onrender.com/api/v1/catagory/update-catagory/${selected._id} `, { name: updateName })
       if (data.success) {
         toast.success(data.message)
         setSelected(null)
@@ -84,7 +84,7 @@ const handleSubmit = async (e,) => {
   const handledelete = async (pId) => {
 
     try {
-      const { data } = await axios.delete(`http://localhost:4500/api/v1/catagory/delete-catagory/${pId} `)
+      const { data } = await axios.delete(`https://backend-n7jv.onrender.com/api/v1/catagory/delete-catagory/${pId} `)
       if (data.success) {
         toast.success(data.message)
         getAllCatagory()

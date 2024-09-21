@@ -24,7 +24,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/product/get-product/${params.slug}`
+        `https://backend-n7jv.onrender.com/api/v1/product/get-product/${params.slug}`
       );
       setName(data.product.name);
       setId(data.product._id);
@@ -47,7 +47,7 @@ const UpdateProduct = () => {
   const getAllCatagory = async (req, res) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/catagory/get-catagory`
+        `https://backend-n7jv.onrender.com/api/v1/catagory/get-catagory`
       );
       if (data?.success) {
         await setCatagory(data?.catagory);
@@ -77,7 +77,7 @@ const UpdateProduct = () => {
       //update product
 
       const { data } = await axios.put(
-        `http://localhost:4500/api/v1/product/update-product/${id}`,
+        `https://backend-n7jv.onrender.com/api/v1/product/update-product/${id}`,
         productData
       );
       if (data?.success) {
@@ -94,24 +94,24 @@ const UpdateProduct = () => {
     }
   };
 
-//  delete product==================
-const handleDelete=async()=>{
-  try {
-    let answer= window.prompt(`Type "${name}" To delete product `)
-    if(answer!== name){ 
-      toast.error('Incorrect name') 
-      return
+  //  delete product==================
+  const handleDelete = async () => {
+    try {
+      let answer = window.prompt(`Type "${name}" To delete product `)
+      if (answer !== name) {
+        toast.error('Incorrect name')
+        return
+      }
+      const { data } = await axios.delete(`https://backend-n7jv.onrender.com/api/v1/product/delete-product/${id}`)
+      setTimeout(() => {
+        toast.success("Data Deleted SuccessFully");
+      }, 100);
+      navigate("/dashboard/admin/products");
+    } catch (error) {
+      console.log(error)
+      toast.error('SomeThing wents wrong in deleting Product . Please Try again')
+    }
   }
-    const {data}= await axios.delete(`http://localhost:4500/api/v1/product/delete-product/${id}`)
-    setTimeout(() => {
-      toast.success("Data Deleted SuccessFully");
-    }, 100);
-    navigate("/dashboard/admin/products");
-  } catch (error) {
-    console.log(error)
-    toast.error('SomeThing wents wrong in deleting Product . Please Try again')
-  }
-}
 
 
 
@@ -175,7 +175,7 @@ const handleDelete=async()=>{
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`http://localhost:4500/api/v1/product/product-photo/${id}`}
+                      src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${id}`}
                       alt="photo"
                       className="img img-responsive"
                       height={"200px"}
@@ -234,9 +234,9 @@ const handleDelete=async()=>{
 
               {/* description */}
               <div className="mb-3">
-              
+
                 <textarea
-                cols='30' rows='5'
+                  cols='30' rows='5'
                   type="text"
                   placeholder="Enter Description in detail"
                   value={description}

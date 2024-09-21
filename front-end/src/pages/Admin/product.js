@@ -10,7 +10,7 @@ const Products = () => {
      const [products, setProducts] = useState([])
      const getAllProduct = async () => {
           try {
-               const { data } = await axios.get(`http://localhost:4500/api/v1/product/get-products`)
+               const { data } = await axios.get(`https://backend-n7jv.onrender.com/api/v1/product/get-products`)
                setProducts(data.product)
           } catch (error) {
                console.log(error)
@@ -32,22 +32,22 @@ const Products = () => {
 
                          <div className='d-flex d-flex2 '>
                               {products.map((p) => (
-                               <Link to={`/dashboard/admin/product/${p.slug}`}  key={p._id} className='product-link'>
-                               <div className="card m-1" style={{ width: '18rem' }}>
-                              <div>
-                                   <img src={`http://localhost:4500/api/v1/product/product-photo/${p._id}`} className="card-img-top " alt={p.name} />
-                                   <div className="card-body">
-                                        <h3 className="card-title">{p.name}</h3>
-                                        <h5 className="card-title">{`${p.price} $`}</h5>
-                                        <p className="card-text">{p.description}</p>
+                                   <Link to={`/dashboard/admin/product/${p.slug}`} key={p._id} className='product-link'>
+                                        <div className="card m-1" style={{ width: '18rem' }}>
+                                             <div>
+                                                  <img src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`} className="card-img-top " alt={p.name} />
+                                                  <div className="card-body">
+                                                       <h3 className="card-title">{p.name}</h3>
+                                                       <h5 className="card-title">{`${p.price} $`}</h5>
+                                                       <p className="card-text">{p.description}</p>
 
-                                   </div>
-                              </div>
-                         </div>
-                               
-                               </Link>
+                                                  </div>
+                                             </div>
+                                        </div>
 
-               ))}
+                                   </Link>
+
+                              ))}
                          </div>
 
 

@@ -17,20 +17,20 @@ const AdminOrders = () => {
 
   const getOrders = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:4500/api/v1/auth/all-orders/`);
+      const { data } = await axios.get(`https://backend-n7jv.onrender.com/api/v1/auth/all-orders/`);
       setOrder(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleChange=async(orderId,value)=>{
+  const handleChange = async (orderId, value) => {
     try {
-      const {data}=await axios.put(`http://localhost:4500/api/v1/auth/order-status/${orderId}`,{Status:value})
+      const { data } = await axios.put(`https://backend-n7jv.onrender.com/api/v1/auth/order-status/${orderId}`, { Status: value })
       getOrders();
     } catch (error) {
       console.log(error)
-      
+
     }
   }
 
@@ -64,17 +64,17 @@ const AdminOrders = () => {
                       <tr>
                         <td> {i + 1}</td>
                         <td>  <Select
-                            bordered={false}
-                            onChange={(value) => {
-                              handleChange(o._id,value);
-                            }}
-                            defaultValue={o?.status}>
-                            {status.map((s, i) => (
-                              <Option key={i} value={s}>
-                                {s}
-                              </Option>
-                            ))}
-                          </Select></td>
+                          bordered={false}
+                          onChange={(value) => {
+                            handleChange(o._id, value);
+                          }}
+                          defaultValue={o?.status}>
+                          {status.map((s, i) => (
+                            <Option key={i} value={s}>
+                              {s}
+                            </Option>
+                          ))}
+                        </Select></td>
                         <td> {o?.buyer.name}</td>
                         <td> {moment(o?.createAt).fromNow()}</td>
                         <td> {o?.payment.success ? "success" : "failed"}</td>
@@ -87,7 +87,7 @@ const AdminOrders = () => {
                       <div className="row mb-2 card flex-row">
                         <div className="col-md-4 ">
                           <img
-                            src={`http://localhost:4500/api/v1/product/product-photo/${p._id}`}
+                            src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`}
                             className="card-img-top "
                             alt={p.name}
                             width={"10px"}

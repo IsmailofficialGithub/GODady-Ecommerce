@@ -81,7 +81,7 @@ const Cartpage = () => {
       const { nonce } = await instance.requestPaymentMethod();
       const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
         {
-           nonce,
+          nonce,
           cart,
         },
       );
@@ -109,13 +109,11 @@ const Cartpage = () => {
             </h1>
             <h6>
               {cart?.length > 0
-                ? `You have ${
-                    cart.length
-                  } items in your cart . ${
-                    auth?.token
-                      ? ""
-                      : "Please Login to check it out"
-                  }`
+                ? `You have ${cart.length
+                } items in your cart . ${auth?.token
+                  ? ""
+                  : "Please Login to check it out"
+                }`
                 : "No item in cart"}
             </h6>
           </div>
@@ -127,7 +125,7 @@ const Cartpage = () => {
               <div className="row mb-2 card flex-row">
                 <div className="col-md-4 ">
                   <img
-                    src={`http://localhost:4500/api/v1/product/product-photo/${p._id}`}
+                    src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top "
                     alt={p.name}
                     width={"10px"}
@@ -214,7 +212,7 @@ const Cartpage = () => {
             </>
 
             <div className="mt-2">
-              {!token || !cart.length || !auth.token  ? (
+              {!token || !cart.length || !auth.token ? (
                 <div>Loading...</div>
               ) : (
                 <>
@@ -236,25 +234,25 @@ const Cartpage = () => {
                     )
                   )}
                   {auth.token ? (
-                <button
-                  className="btn btn-primary"
-                  onClick={handlePayment}
-                  disabled={
-                    !instance ||
-                    loading ||
-                    !auth?.user?.address
-                  }
-                >
-                  {loading
-                    ? "Processing"
-                    : "MakePayment"}
-                </button>
-              ) : (
-                "Please Login "
-              )}
+                    <button
+                      className="btn btn-primary"
+                      onClick={handlePayment}
+                      disabled={
+                        !instance ||
+                        loading ||
+                        !auth?.user?.address
+                      }
+                    >
+                      {loading
+                        ? "Processing"
+                        : "MakePayment"}
+                    </button>
+                  ) : (
+                    "Please Login "
+                  )}
                 </>
               )}
-              
+
             </div>
           </div>
         </div>

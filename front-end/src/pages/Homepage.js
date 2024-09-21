@@ -22,7 +22,7 @@ const Homepage = () => {
   const getAllCatagory = async (req, res) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/catagory/get-catagory`
+        `https://backend-n7jv.onrender.com/api/v1/catagory/get-catagory`
       );
 
       if (data.success) {
@@ -45,11 +45,11 @@ const Homepage = () => {
     try {
       setloading(true);
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/product/product-list/${page}`
+        `https://backend-n7jv.onrender.com/api/v1/product/product-list/${page}`
       );
       setloading(false);
       setProduct(data.products);
-   
+
     } catch (error) {
       console.log(error);
       setloading(false);
@@ -61,12 +61,12 @@ const Homepage = () => {
   const filterProduct = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4500/api/v1/product/filter-product",
+        "https://backend-n7jv.onrender.com/api/v1/product/filter-product",
         { checked, radio }
       );
 
       setProduct(data.products);
-     
+
     } catch (error) {
       console.log(error);
     }
@@ -76,7 +76,7 @@ const Homepage = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/product/product-count`
+        `https://backend-n7jv.onrender.com/api/v1/product/product-count`
       );
       setTotal(data?.total);
     } catch (error) {
@@ -96,7 +96,7 @@ const Homepage = () => {
     setChecked(all);
   };
 
-  
+
   useEffect(() => {
     if (checked.length || radio.length) {
       filterProduct();
@@ -111,11 +111,11 @@ const Homepage = () => {
     try {
       setloading(true);
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/product/product-list/${page}`
+        `https://backend-n7jv.onrender.com/api/v1/product/product-list/${page}`
       );
       setProduct([...products, ...data?.products]);
       setloading(false);
-    
+
     } catch (error) {
       setloading(false);
       console.log(error);
@@ -179,7 +179,7 @@ const Homepage = () => {
               <div className="card m-1" style={{ width: "18rem" }}>
                 <div>
                   <img
-                    src={`http://localhost:4500/api/v1/product/product-photo/${p._id}`}
+                    src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top "
                     alt={p.name}
                   />
@@ -202,7 +202,7 @@ const Homepage = () => {
                       onClick={() => {
                         setCart([...cart, p]);
                         toast.success(`Product ${p.name} Add to Cart`);
-                        localStorage.setItem('cart' ,JSON.stringify([...cart,p]) )
+                        localStorage.setItem('cart', JSON.stringify([...cart, p]))
                       }}
                     >
                       Add to Cart
@@ -220,7 +220,7 @@ const Homepage = () => {
                   e.preventDefault();
 
                   setPage(page + 1);
-                  
+
                 }}
               >
                 {loading ? "Loading..." : "Load More"}

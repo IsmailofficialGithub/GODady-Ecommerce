@@ -1,22 +1,22 @@
 import React from "react";
 import { useSearch } from "../../../context/searchContext";
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Searchfrom = () => {
   const [values, setValues] = useSearch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
-const handleSubmit =async(e)=>{
-  e.preventDefault();
-  try {
-    const {data}=await axios.get(`http://localhost:4500/api/v1/product/search-product/${values.keyword}`)
-    setValues({...values,result:data});
-    navigate('/search');
-  } catch (error) {
-    console.log(error)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.get(`https://backend-n7jv.onrender.com/api/v1/product/search-product/${values.keyword}`)
+      setValues({ ...values, result: data });
+      navigate('/search');
+    } catch (error) {
+      console.log(error)
+    }
+
   }
-
-}
 
   return (
     <>

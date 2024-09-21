@@ -6,13 +6,13 @@ const ProductDetail = () => {
   const params = useParams();
   const [product, setProduct] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
-  const navigate =useNavigate()
+  const navigate = useNavigate()
 
   //get product
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/product/get-product/${params.slug}`
+        `https://backend-n7jv.onrender.com/api/v1/product/get-product/${params.slug}`
       );
       setProduct(data?.product);
       relatedItems(data?.product._id, data?.product.catagory._id);
@@ -25,7 +25,7 @@ const ProductDetail = () => {
   const relatedItems = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:4500/api/v1/product/related-product/${pid}/${cid}`
+        `https://backend-n7jv.onrender.com/api/v1/product/related-product/${pid}/${cid}`
       );
       let sameProducts = data?.products;
       setRelatedProduct(data?.products || []);
@@ -43,7 +43,7 @@ const ProductDetail = () => {
       <div className="row container m-4">
         <div className="col-md-5">
           <img
-            src={`http://localhost:4500/api/v1/product/product-photo/${product._id}`}
+            src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${product._id}`}
             className="card-img-top img-product-detail "
             alt={product.name}
           />
@@ -68,11 +68,11 @@ const ProductDetail = () => {
               <div className="card m-1" style={{ width: "18rem" }}>
                 <div>
                   <img
-                    src={`http://localhost:4500/api/v1/product/product-photo/${p._id}`}
+                    src={`https://backend-n7jv.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top "
                     alt={p.name}
                     height={260}
-                  style={{objectFit:"cover"}}
+                    style={{ objectFit: "cover" }}
                   />
                   <div className="card-body">
                     <h3 className="card-title">{p.name}</h3>
