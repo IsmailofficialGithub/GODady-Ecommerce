@@ -182,10 +182,10 @@ const Homepage = () => {
               Reset Filter{" "}
             </span>
           </div>
+          <hr />
         </div>
 
         <div className="col-md-9">
-          <hr />
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap d-flex2">
             {products?.map((p) => (

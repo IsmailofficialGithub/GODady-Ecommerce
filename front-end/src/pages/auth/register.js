@@ -23,7 +23,7 @@ function Register() {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
-        { name, email, password, phone, address,answer }
+        { name, email, password, phone, address, answer }
       );
       if (res.data.success) {
         toast.success(res.data.message);
@@ -137,6 +137,7 @@ function Register() {
               Submit
             </button>
           </form>
+          <p onClick={() => { navigate('/login') }} style={{ color: 'rgb(252 252 255)', marginTop: "5px", cursor: "pointer", textDecoration: "underline" }}>Already have account ?</p>
         </div>
       </div>
     </Layout>

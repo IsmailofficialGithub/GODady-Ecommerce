@@ -114,6 +114,10 @@
   align-self: center;
   border-radius: 10px;
 }
+.mobile-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 @media only screen and (max-width: 600px) {
   .card-mobile {
     width: 100% !important;
@@ -121,5 +125,14 @@
   .mobile-flex {
     display: flex !important;
     flex-direction: row !important;
+  }
+  .mobile-row {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+  }
+  .mobile-heading {
+    font-weight: 200;
+    font-size: 14px;
   }
 }

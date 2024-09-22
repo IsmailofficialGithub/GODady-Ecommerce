@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import Layout from "../../components/layout/Layout";
 import axios from "axios";
-import { useNavigate ,useLocation} from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../../style/authStyle.css";
 import { useAuth } from "../../context/auth";
@@ -10,9 +10,9 @@ import { useAuth } from "../../context/auth";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [auth,setAuth]=useAuth();
+  const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
-  const location=useLocation();
+  const location = useLocation();
 
   //from function
 
@@ -24,17 +24,17 @@ function Login() {
         { email, password }
       );
       if (res.data.success) {
-          toast.success(res.data.message);
-          setAuth({
-            ...auth,
-            user:res.data.user,
-            token:res.data.token
-          })
-          localStorage.setItem('auth',JSON.stringify(res.data))
+        toast.success(res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token
+        })
+        localStorage.setItem('auth', JSON.stringify(res.data))
 
-          setTimeout(() => {
-            navigate(location.state || "/");
-          }, 1000);
+        setTimeout(() => {
+          navigate(location.state || "/");
+        }, 1000);
       } else {
         toast.error(res.data.message);
       }
@@ -83,7 +83,9 @@ function Login() {
               Login
             </button>
             <div className="mt-3 forget">
-            <p onClick={()=>{navigate('/forget-password')}}>forget Password?</p>
+              <p onClick={() => { navigate('/forget-password') }}>forget Password?</p>
+              <br />
+              <p onClick={() => { navigate('/register') }}>Don't have any account</p>
             </div>
           </form>
         </div>
