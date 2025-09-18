@@ -8,7 +8,7 @@
   <p align="center">
     <a href="https://my-school-3lk2.onrender.com/">🔗 Live Demo</a>
     ·
-    <a href="https://github.com/yourusername/YOUR_GITHUB_REPO_URL">📦 Source Code</a>
+    <a href="https://github.com/IsmailofficialGithub/GODady-Ecommerce">📦 Source Code</a>
   </p>
 </p>
 
